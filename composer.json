@@ -13,12 +13,6 @@
             "homepage": "http://blog.digitalstruct.com/"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/fabiocarneiro/ZfcTwitterBootstrap"
-        }
-    ],
     "require": {
         "php": ">=5.3.3",
         "zendframework/zend-filter": "2.*",
