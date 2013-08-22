@@ -89,6 +89,9 @@ class Form extends AbstractHelper
      */
     public function __invoke(ZendForm $form)
     {
+        if(strpos($form->getAttribute('class'), 'navbar-form') !== false){
+            $this->getElementHelper()->setWrappersActive(false);
+        }
         $form->prepare();
         $html = $this->getFormHelper()->openTag($form);
         $html .= $this->render($form->getIterator());
