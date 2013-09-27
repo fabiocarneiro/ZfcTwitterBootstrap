@@ -330,8 +330,8 @@ class FormElement extends ZendFormElement {
             $controls = $elementHelper->render($element);
         }
 
-        $html = $hiddenElementForCheckbox . $controlLabel . $this->getWrappersActive()?sprintf($controlWrapper, $id, $controls, $descriptionHelper->render($element), $elementErrorHelper->render($element)
-        ):$controls."\n";
+        $html = $hiddenElementForCheckbox . $controlLabel . ($this->getWrappersActive()?sprintf($controlWrapper, $id, $controls, $descriptionHelper->render($element), $elementErrorHelper->render($element)
+        ):$controls)."\n";
 
         $addtClass = ($element->getMessages()) ? ' error' : '';
         if ($this->getWrappersActive()) {
