@@ -56,6 +56,11 @@ class FormElement extends ZendFormElement {
      * @var 
      */
     protected $wrappersActive = true;
+    
+    /**
+     * @var 
+     */
+    protected $labelsActive = true;
 
     /**
      * Get Wrappers Active status
@@ -76,7 +81,27 @@ class FormElement extends ZendFormElement {
         $this->wrappersActive = $wrappersActive;
         return $this;
     }
-
+    
+    /**
+     * Get Labels Active status
+     *
+     * @param  boolean
+     * @return self
+     */
+    public function getLabelsActive() {
+        return $this->labelsActive;
+    }
+    
+    /**
+     * Set Labels Active status
+     *
+     * @param  boolean
+     * @return self
+     */
+    public function setLabelsActive($labelsActive) {
+        $this->labelsActive = $labelsActive;
+    }
+    
     /**
      * Set Label Helper
      *
@@ -330,7 +355,7 @@ class FormElement extends ZendFormElement {
             $controls = $elementHelper->render($element);
         }
 
-        $html = $hiddenElementForCheckbox . $controlLabel . ($this->getWrappersActive()?sprintf($controlWrapper, $id, $controls, $descriptionHelper->render($element), $elementErrorHelper->render($element)
+        $html = $hiddenElementForCheckbox . ($this->getLabelsActive()?$controlLabel:null) . ($this->getWrappersActive()?sprintf($controlWrapper, $id, $controls, $descriptionHelper->render($element), $elementErrorHelper->render($element)
         ):$controls)."\n";
 
         $addtClass = ($element->getMessages()) ? ' error' : '';

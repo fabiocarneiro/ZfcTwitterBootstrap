@@ -91,10 +91,13 @@ class Form extends AbstractHelper
     {
         if(strpos($form->getAttribute('class'), 'navbar-form') !== false){
             $this->getElementHelper()->setWrappersActive(false);
+            $this->getElementHelper()->setLabelsActive(false);
         } else if(strpos($form->getAttribute('class'), 'form-search') !== false){
             $this->getElementHelper()->setWrappersActive(false);
+            $this->getElementHelper()->setLabelsActive(false);
         } else {
             $this->getElementHelper()->setWrappersActive(true);
+            $this->getElementHelper()->setLabelsActive(true);
         }
         $form->prepare();
         $html = $this->getFormHelper()->openTag($form);
